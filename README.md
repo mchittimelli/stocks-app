@@ -10,3 +10,5 @@ As iex cloud API is returning token error, mockData is used for implementation (
 
 Packages/ used:
 React, Redux, React-Redux, Material UI, reselect (for state selectors in hooks), node-iex-cloud, node-fetch (for sandbox API)
+
+App screenshots are present in screenshots folder.
