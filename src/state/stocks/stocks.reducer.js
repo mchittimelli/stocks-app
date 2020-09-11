@@ -1,20 +1,23 @@
-import { GET_STOCKS, ADD_STOCKS, UPDATE_STOCKS } from "./stocks.actions";
+import { ADD_STOCKS, UPDATE_STOCKS } from "./stocks.actions";
+import { mockStocks } from "../../mockData";
 
 const initialState = {
-    stocks: {
-        myStocks:[1, 2, 3]
-    },
+    stocks: {},
+    userStocks: {},
 }
 
 const stocksReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_STOCKS:
+
         case ADD_STOCKS:
-            return {...state};
+            return {...state, userStocks: action.payload.userStocks};
+
         case UPDATE_STOCKS:
             return {...state, stocks: action.payload.stocks}
+            
         default:
           return state;
+
       }
 }
 
