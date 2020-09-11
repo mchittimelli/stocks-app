@@ -13,6 +13,7 @@ const useStyles = makeStyles(() => ({
         display: 'flex',
         justifyContent: 'space-between',
         marginTop: 5,
+        marginRight: 'auto'
     },
     menuText: {
         margin: 5,
@@ -33,8 +34,13 @@ const useStyles = makeStyles(() => ({
     },
     paddingAround: {
         padding: 10,
+    }, 
+    time: {
+        margin: '5px 10px 0px auto'
     }
   }));
+
+const currentTime = new Date();
 
 function Dashboard() {
   const classes = useStyles();
@@ -42,6 +48,7 @@ function Dashboard() {
   const [view, setView] = useState(true);
   const userStocks = useSelector(userStocksSelector);
   const stocks = useStocks();
+  const renderTime = new Date();
 
     return(
         <div className={classes.container} >
@@ -56,6 +63,11 @@ function Dashboard() {
                         </Typography>
                         <Typography className={!view ? classes.menuTextUnderLine : classes.menuText} onClick={() => setView(false)} >
                             My Stocks
+                        </Typography>
+                    </div>
+                    <div>
+                        <Typography className={classes.time}>
+                            {`Updated: ${Math.round((renderTime - currentTime)/1000)} sec ago`}
                         </Typography>
                     </div>
                 </Toolbar>
