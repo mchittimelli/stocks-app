@@ -1,7 +1,7 @@
 export const USER_STOCKS = 'USER_STOCKS';
 
 export const getUserSessionStocks = () => {
-    return sessionStorage.getItem(USER_STOCKS) ? JSON.parse(sessionStorage.getItem(USER_STOCKS)) : null;
+    return sessionStorage.getItem(USER_STOCKS) ? JSON.parse(sessionStorage.getItem(USER_STOCKS)) : {};
 };
 
 export const setUserSessionStocks = (userStocks) => {

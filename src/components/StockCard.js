@@ -36,7 +36,7 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-function StockCard({ symbol, companyName, latestPrice, week52High, week52Low, withCheckBox }) {
+function StockCard({ symbol, companyName, latestPrice, week52High, week52Low, withCheckBox, checked, onSelectStock }) {
     const classes = useStyles();
     return(
         <div className={classes.card} >
@@ -52,7 +52,7 @@ function StockCard({ symbol, companyName, latestPrice, week52High, week52Low, wi
             </div>
             { withCheckBox &&
                 <div className={classes.checkBox} >
-                    <Checkbox size="small" color='primary' />
+                    <Checkbox size="small" color='primary' checked={checked} onClick={onSelectStock} />
                 </div>
             }
         </div>

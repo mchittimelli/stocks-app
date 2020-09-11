@@ -1,9 +1,9 @@
 import { ADD_STOCKS, UPDATE_STOCKS } from "./stocks.actions";
-import { mockStocks } from "../../mockData";
+import { getUserSessionStocks } from "../../SessionStore";
 
 const initialState = {
     stocks: {},
-    userStocks: {},
+    userStocks: getUserSessionStocks(),
 }
 
 const stocksReducer = (state = initialState, action) => {

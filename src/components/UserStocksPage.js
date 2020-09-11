@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import { Typography, makeStyles, Button } from '@material-ui/core'
 import StockCard from './StockCard';
 import { useSelector } from 'react-redux';
 import { userStocksSelector } from '../state/stocks/stocks.selectors';
+import AddStocksDialog from './AddStocksDialog';
 
 const useStyles = makeStyles(() => ({
     
@@ -28,6 +29,8 @@ function UserStocksPage() {
     const classes = useStyles();
     const userStocks = useSelector(userStocksSelector);
 
+    const [addStocksDialogOpen, setAddStocksDialogOpen] = useState(false);
+
     return(
         <div className={classes.container} >
             <Typography variant='h6'>My Stocks</Typography>
@@ -41,17 +44,18 @@ function UserStocksPage() {
                             ))
                         }
                     </div>
-                    <Button className={classes.centerItems} onClick={() => {}} variant={'contained'} color={'primary'} >
+                    <Button className={classes.centerItems} onClick={() => setAddStocksDialogOpen(true)} variant={'contained'} color={'primary'} >
                         Edit
                     </Button>
                 </Fragment> :
                 <Fragment>                    
                     <Typography variant='body2' className={classes.centerItems}>No Stocks Selected</Typography>
-                    <Button className={classes.centerItems} onClick={() => {}} variant={'contained'} color={'primary'} >
+                    <Button className={classes.centerItems} onClick={() => setAddStocksDialogOpen(true)} variant={'contained'} color={'primary'} >
                         Add
                     </Button>
                 </Fragment>
             }
+            <AddStocksDialog open={addStocksDialogOpen} close={() => setAddStocksDialogOpen(false)} />
         </div>
     )
 }
