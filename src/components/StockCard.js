@@ -36,10 +36,10 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-function StockCard({ symbol, companyName, latestPrice, week52High, week52Low, withCheckBox, checked, onSelectStock }) {
+function StockCard({ symbol, companyName, latestPrice, week52High, week52Low, withCheckBox, checked, onSelectStock, increase, decrease }) {
     const classes = useStyles();
     return(
-        <div className={classes.card} >
+        <div className={classes.card} style={increase ? {backgroundColor: 'green'} : null}>
             <div className={classes.leftBlock}>
                 <Typography variant='h6' className={classes.title} >{symbol}</Typography>
                 <Typography variant='body2' >{`High: ${week52High}`}</Typography>

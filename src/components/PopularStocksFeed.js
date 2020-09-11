@@ -33,7 +33,7 @@ function PopularStockFeed() {
             <div className={classes.options} >
                 {
                     Object.keys(stocks).map(stock => (
-                        <StockCard key={stock} {...stocks[stock].quote}/>
+                        <StockCard key={stock} {...stocks[stock].quote} increase={stocks[stock].increase} decrease={stocks[stock].decrease}/>
                     ))
                 }
             </div>
